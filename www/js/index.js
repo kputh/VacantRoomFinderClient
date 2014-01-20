@@ -53,41 +53,38 @@ var app = {
     // process submit to web service with only location data
     processSubmit: function(event) {
 
+        $.mobile.changePage("#loadingPage", {
+            transition: "slideup"
+        });
+
         // issue ajax query and populate view with results
         var abbr = $("#textinput1").val();
-        var url = "http://localhost:8080/RoomFinderService/webresources/rooms/near/" + abbr;
-        var jqxhr = $.getJSON(url, function() {
-            console.log("success");
+        var serverURL = "http://141.45.201.97:8080/RoomFinderService/" +
+                "webresources/rooms/near/" + abbr;
+        var jqxhr = $.getJSON(serverURL, function(jsonData) {
+
+            console.log("JSON Data: " + jsonData);
+
+            $("#ResultView li").remove();
+            $.each(jsonData, function(index, room) {
+                var item = $("#elementTemplate").clone();
+                item.text(room.roomAbbr);
+                item.appendTo("#ResultView");
+            });
+
+            // move to result page
+            $.mobile.changePage("#resultPage", {
+                transition: "slideup"
+            });
         })
-                .done(function() {
-                    console.log("second success");
-
-                    // move to result page
-                    $.mobile.changePage("#resultPage", {
-                        transition: "slideup"
-                    });
-
-                    $("#ResultView li").remove();
-                    var item = $("#elementTemplate").clone();
-                    item.text("Test");
-                    item.appendTo("#ResultView");
-                    console.log(data);
-
-                    $.each(data, function(key, val) {
-                        var item = $("elementTemplate").clone();
-                        item.text("val");
-                        item.appendTo("ResultView");
-                    });
-
-                })
                 .fail(function(jqxhr, textStatus, error) {
-                    
+
                     var errorMessage = "Request Failed: " +
-                        textStatus + ", " + error;
-                
+                            textStatus + ", " + error;
+
                     console.log(errorMessage);
                     $("#errorMessage").text(errorMessage);
-                    
+
                     $.mobile.changePage("#errorPage", {
                         transition: "slideup"
                     });

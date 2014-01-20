@@ -19,6 +19,7 @@ C:\Users\Kai\Documents\NetBeansProjects\RoomFinderApp\platforms\android\assets\w
 C:\Users\Kai\Documents\NetBeansProjects\RoomFinderApp\platforms\android\assets\www\img \
 C:\Users\Kai\Documents\NetBeansProjects\RoomFinderApp\platforms\android\assets\www\index.html \
 C:\Users\Kai\Documents\NetBeansProjects\RoomFinderApp\platforms\android\assets\www\js \
+C:\Users\Kai\Documents\NetBeansProjects\RoomFinderApp\platforms\android\assets\www\plugins \
 C:\Users\Kai\Documents\NetBeansProjects\RoomFinderApp\platforms\android\assets\www\css\index.css \
 C:\Users\Kai\Documents\NetBeansProjects\RoomFinderApp\platforms\android\assets\www\css\jquery.mobile-1.3.2.css \
 C:\Users\Kai\Documents\NetBeansProjects\RoomFinderApp\platforms\android\assets\www\img\logo.png \
